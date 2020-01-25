@@ -19,10 +19,26 @@ body {
 }
 
 .header {
-
     height: 100px;
     width: 100%;
-    background-color: var(--app-primary-color);
+    background-image: linear-gradient(var(--app-primary-color), #6eabff);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    
+}
+
+.header a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;    
+}
+
+.header a.selected {
+    margin-bottom: 0px;
+    border-bottom: solid #fff 4px;    
 }
 
 .app {
