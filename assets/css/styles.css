@@ -157,7 +157,6 @@ background: linear-gradient(90deg, var(--star-background) var(--percent), var(--
 
 .input-group {
     display: flex;
-    /* border-bottom: 1px solid var(--app-secondary-color); */
 }
 
 .input-group > input {
@@ -177,4 +176,54 @@ background: linear-gradient(90deg, var(--star-background) var(--percent), var(--
 @keyframes show-border {
     0%   { border-bottom: 1.5px solid var(--app-background-color); }
     100% { border-bottom: 1.5px solid var(--app-primary-color); }
+}
+
+
+/* loader styles */
+
+.loader {
+    position: fixed;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 2px;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+  }
+  .loader > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--app-primary-color);
+    transform: scale(0);
+    transform-origin: center center;
+    animation: loader 2s infinite linear;
+  }
+  .loader > div:nth-of-type(1), .loader > div:nth-of-type(5), .loader > div:nth-of-type(9) {
+    animation-delay: 0.4s;
+  }
+  .loader > div:nth-of-type(4), .loader > div:nth-of-type(8) {
+    animation-delay: 0.2s;
+  }
+  .loader > div:nth-of-type(2), .loader > div:nth-of-type(6) {
+    animation-delay: 0.6s;
+  }
+  .loader > div:nth-of-type(3) {
+    animation-delay: 0.8s;
+  }
+  
+  @keyframes loader {
+    0% {
+      transform: scale(0);
+    }
+    40% {
+      transform: scale(1);
+    }
+    80% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
   }

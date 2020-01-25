@@ -3,7 +3,10 @@ $(function () {
     var coursesObj,  coursesList;
     getCourses();
     
-    function getCourses(name = '') {        
+    function getCourses(name = '') {  
+        const el_list = document.getElementById('courses-list');
+        el_list.innerHTML = '' 
+        $("#loader").show();
         fetch(`/courses/${name}`)        
             .then(resp => {
                 return resp.json()
@@ -18,10 +21,10 @@ $(function () {
     }
 
     function renderCourses() {
-        const el_list = document.getElementById('courses-list');
-        el_list.innerHTML = ''
+        const el_list = document.getElementById('courses-list');        
         let el;
         let card;
+        $("#loader").hide();
         coursesList.map(course => {
             el = document.createElement('div')
             card = cardLayout(course)
