@@ -1,0 +1,118 @@
+:root {
+    --app-background-color: #eee;
+    --app-primary-color: #3987f4;
+    --star-size: 60px;
+    --star-color: #b3b3b3;
+    --star-background: #fc0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: var(--app-background-color);
+}
+
+.container {
+    width: 100%;
+}
+
+.header {
+    
+    height: 100px;  
+    width: 100%;  
+    background-color: var(--app-primary-color);
+}
+
+.app {
+
+}
+
+.card {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;    
+    
+    background-color: #fff;
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+}
+
+.card-header {
+    display: flex;    
+    align-items: center;
+    align-content: center;
+    background-color: var(--app-background-color);
+    padding: 10px 20px;
+    border-bottom: solid #d5d5d5 1px;
+    position: relative;
+    height: 25px;
+}
+
+.card-header-image {
+    position: absolute;
+    bottom: -75%;
+}
+
+.card-header-text {
+    position: absolute;
+    right: 20px;
+    padding: 5px 15px;
+    border-radius: 22px;
+    border: solid 1px #d5d5d5;
+    font-size: 12px;
+    background-color: #fff;
+    opacity: 0.8;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+}
+
+.card-body-title {
+    margin-top: 50px;    
+}
+
+.card-body-text {
+    margin-top: 10px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.card-footer {
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.bolder {
+    font-weight: 700;
+}
+
+.blue-text {
+    color: var(--app-primary-color);
+}
+
+.stars {
+--percent: calc(var(--rating) / 5 * 100%);
+display: inline-block;
+font-size: 25px;
+font-family: Times;
+line-height: 1;
+}
+
+.stars::before {
+content: "★★★★★";
+letter-spacing: 3px;
+background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
