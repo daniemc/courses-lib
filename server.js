@@ -9,9 +9,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.get('/courses', async (req, res) => {
+app.get('/courses/:name?', async (req, res) => {
     let data = {};
-    const url = `/courses?orderBy=popularity+desc&expand=provider&limit=24&profession=&subjectAreaCode=&state=&provider=&name=`
+    const name = req.params.name ? req.params.name : ''
+    const url = `/courses?orderBy=popularity+desc&expand=provider&limit=24&profession=&subjectAreaCode=&state=&provider=&name=${name}`
     await api.get(url)
         .then(resp => {
             if (resp.status === 200) {

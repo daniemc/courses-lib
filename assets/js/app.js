@@ -4,7 +4,7 @@ $(function () {
     getCourses();
     
     function getCourses(name = '') {        
-        fetch('/courses')        
+        fetch(`/courses/${name}`)        
             .then(resp => {
                 return resp.json()
             })
@@ -19,6 +19,7 @@ $(function () {
 
     function renderCourses() {
         const el_list = document.getElementById('courses-list');
+        el_list.innerHTML = ''
         let el;
         let card;
         coursesList.map(course => {
@@ -59,4 +60,17 @@ $(function () {
             </div>
         </div>
     `;
+
+
+    let typingTimer;
+    const waitForTyping = 1500;
+
+    $('#course_search').on('keyup', function(e) {        
+        clearTimeout(typingTimer);        
+        typingTimer = setTimeout(search, waitForTyping);
+    })
+
+    function search() {
+        getCourses($('#course_search').val());
+    }
 })
